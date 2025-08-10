@@ -8,15 +8,15 @@ export const goodsFromServer = [
   'Bread', 'Fish', 'Honey', 'Jam', 'Garlic',
 ];
 
-export const SortOptions = {
-  ALPHABETICAL: 'alphabetical',
-  LENGTH: 'length',
-};
+export enum SortOptions {
+  ALPHABETICAL = 'alphabetical',
+  LENGTH = 'length',
+}
 
 type SortType = (typeof SortOptions)[keyof typeof SortOptions];
 
 export const App: React.FC = () => {
-  const [activeSort, setActiveSort] = useState<SortType | null>(null);
+  const [activeSort, setActiveSort] = useState<SortOptions | null>(null);
   const [isReversed, setIsReversed] = useState<boolean>(false);
 
   const getVisibleList = () => {
